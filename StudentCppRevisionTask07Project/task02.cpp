@@ -22,5 +22,9 @@
  */
 
 string task02(int a, int b, int c) {	
-	return "a b c";
+	int min = (a < b && a < c) ? a : (b < c) ? b : c;
+	int max = (a > b && a > c) ? a : (b > c) ? b : c;
+	int avg = a + b + c - min - max;
+
+	return to_string(min) + " " + to_string(avg) + " " + to_string(max);
 }
