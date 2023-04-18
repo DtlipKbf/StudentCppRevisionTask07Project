@@ -34,5 +34,17 @@
  */
 
 bool task03(int x, int y, int z, int a, int b, int c) {
-	return false;
+	if (x < 0 || y < 0 || z < 0 || a < 0 || b < 0 || c < 0) {
+		return false;
+	}
+	
+	int a1 = (a > b && a > c) ? a : (b > c) ? b : c;
+	int c1 = (a < b && a < c) ? a : (b < c) ? b : c;
+	int b1 = a + b + c - a1 - c1;
+	
+	int x1 = (x > y && x > z) ? x : (y > z) ? y : z;
+	int z1 = (x < y && x < z) ? x : (y < z) ? y : z;
+	int y1 = x + y + z - x1 - z1;
+
+	return x1 <= a1 && y1 <= b1 && z1 <= c1;
 }
